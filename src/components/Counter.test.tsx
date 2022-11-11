@@ -1,11 +1,12 @@
 import { fireEvent, render } from "solid-testing-library";
 import { describe, it } from "vitest";
-import Counter from "./Counter";
+
+import { Counter } from "./Counter";
 
 describe.concurrent("<Counter />", () => {
   it("increments value", async ({ expect }) => {
     const { queryByRole, unmount } = render(() => <Counter />);
-    const button = (await queryByRole("button")) as HTMLButtonElement;
+    const button = await queryByRole("button");
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent(/Clicks: 0/);
     fireEvent.click(button);

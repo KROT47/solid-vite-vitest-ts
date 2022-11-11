@@ -1,7 +1,7 @@
 import { Title } from "solid-start";
 import { HttpStatusCode } from "solid-start/server";
 
-export default function NotFound() {
+export default function NotFound(): JSXElement {
   return (
     <main>
       <Title>Not Found</Title>

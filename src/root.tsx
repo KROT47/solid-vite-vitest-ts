@@ -14,7 +14,7 @@ import {
 } from "solid-start";
 import "./root.css";
 
-export default function Root() {
+export default function Root(): JSXElement {
   return (
     <Html lang="en">
       <Head>
