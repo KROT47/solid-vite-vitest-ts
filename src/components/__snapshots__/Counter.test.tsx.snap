@@ -3,7 +3,7 @@
 exports[`<Counter /> > renders 1 1`] = `
 <div>
   <button
-    class="increment"
+    class="_increment_898980"
   >
     Clicks: 
     <!--#-->
