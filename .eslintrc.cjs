@@ -19,12 +19,42 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['solid', 'import'],
+  plugins: ['solid', 'import', 'boundaries'],
   settings: {
     'import/resolver': {
       typescript: true,
       node: true,
     },
+    'boundaries/elements': [
+      {
+        type: 'shared',
+        pattern: 'shared/*',
+      },
+      {
+        type: 'entities',
+        pattern: 'entities/*',
+      },
+      {
+        type: 'features',
+        pattern: 'features/*',
+      },
+      {
+        type: 'widgets',
+        pattern: 'widgets/*',
+      },
+      {
+        type: 'pages',
+        pattern: 'pages/*',
+      },
+      {
+        type: 'processes',
+        pattern: 'processes/*',
+      },
+      {
+        type: 'app',
+        pattern: 'app/*',
+      },
+    ],
   },
   rules: {
     'import/prefer-default-export': 'off',
@@ -38,7 +68,13 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+        groups: [
+          'builtin',
+          'external',
+          'parent',
+          ['sibling', 'internal'],
+          'index',
+        ],
         'newlines-between': 'always',
       },
     ],
@@ -47,6 +83,82 @@ module.exports = {
       {
         max: 30,
         ignoreTypeImports: false,
+      },
+    ],
+
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'max-lines': 1,
+    'max-len': [1, 140, 2],
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    'no-underscore-dangle': 'off',
+    camelcase: 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'eol-last': ['error', 'always'],
+
+    'boundaries/no-private': 'error',
+    'boundaries/no-unknown': 'error',
+    'boundaries/element-types': [
+      2,
+      {
+        default: 'disallow',
+        message: '${file.type} is not allowed to import ${dependency.type}',
+        rules: [
+          {
+            from: 'shared',
+            allow: ['shared'],
+            message:
+              'Do not import ${report.specifiers} from ${dependency.source} in helpers',
+          },
+          {
+            from: 'entities',
+            allow: ['shared'],
+          },
+          {
+            from: 'features',
+            allow: ['shared', 'entities'],
+          },
+          {
+            from: 'widgets',
+            allow: ['shared', 'entities'],
+          },
+          {
+            from: 'pages',
+            allow: ['shared', 'entities', 'features', 'widgets'],
+          },
+          {
+            from: 'processes',
+            allow: ['shared', 'entities', 'features', 'widgets', 'pages'],
+          },
+          {
+            from: 'app',
+            allow: [
+              'shared',
+              'entities',
+              'features',
+              'widgets',
+              'pages',
+              'processes',
+            ],
+          },
+        ],
       },
     ],
   },

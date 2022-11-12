@@ -1,7 +1,7 @@
 import { fireEvent, render } from "solid-testing-library";
 import { describe, it } from "vitest";
 
-import { Counter } from "./Counter";
+import { Counter } from "~/entities/Counter";
 
 describe.concurrent("<Counter />", () => {
   it("increments value", async ({ expect }) => {
