@@ -11,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:css-import-order/recommended',
     'plugin:solid/typescript',
     'prettier',
   ],
@@ -19,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['solid', 'import', 'boundaries'],
+  plugins: ['solid', 'import', 'css-import-order', 'boundaries'],
   settings: {
     'import/resolver': {
       typescript: true,
