@@ -1,12 +1,12 @@
-import { fireEvent, render } from "solid-testing-library";
-import { describe, it } from "vitest";
+import { fireEvent, render } from 'solid-testing-library';
+import { describe, it } from 'vitest';
 
-import { Counter } from "~/entities/Counter";
+import { Counter } from '~/entities/Counter';
 
-describe.concurrent("<Counter />", () => {
-  it("increments value", async ({ expect }) => {
+describe.concurrent('<Counter />', () => {
+  it('increments value', async ({ expect }) => {
     const { queryByRole, unmount } = render(() => <Counter />);
-    const button = await queryByRole("button");
+    const button = await queryByRole('button');
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent(/Clicks: 0/);
     fireEvent.click(button);
@@ -14,7 +14,7 @@ describe.concurrent("<Counter />", () => {
     unmount();
   });
 
-  it("renders 1", ({ expect }) => {
+  it('renders 1', ({ expect }) => {
     const { container, unmount } = render(() => <Counter />);
     expect(container).toMatchSnapshot();
     unmount();

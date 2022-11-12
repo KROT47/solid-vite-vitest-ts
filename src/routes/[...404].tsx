@@ -1,3 +1,3 @@
-import { Page404 } from "~/pages";
+import { Page404 } from '~/pages';
 
 export default Page404;

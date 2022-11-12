@@ -6,13 +6,16 @@
     "serve": "solid-start start",
     "test": "vitest",
     "coverage": "vitest --coverage",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.(js|jsx|ts|tsx|json)\"",
     "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "lint:fix": "npm run lint -- --fix",
+    "lint:fix:all": "npm run lint:fix && npm run format"
   },
   "type": "module",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
     "@vitest/coverage-c8": "^0.25.1",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",

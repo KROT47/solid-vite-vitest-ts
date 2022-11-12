@@ -1,6 +1,10 @@
 // @refresh reload
-import { ColorModeScript, HopeProvider, injectCriticalStyle } from "@hope-ui/core";
-import { Suspense } from "solid-js";
+import {
+  ColorModeScript,
+  HopeProvider,
+  injectCriticalStyle,
+} from '@hope-ui/core';
+import { Suspense } from 'solid-js';
 import {
   A,
   Body,
@@ -12,9 +16,9 @@ import {
   Routes,
   Scripts,
   Title,
-} from "solid-start";
+} from 'solid-start';
 
-import "./root.css";
+import './root.css';
 
 export default function Root(): JSXElement {
   injectCriticalStyle();

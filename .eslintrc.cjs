@@ -95,8 +95,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'max-lines': 1,
-    'max-len': [1, 140, 2],
+    'max-len': [1, 80, 2],
     'no-param-reassign': [
       'error',
       {
