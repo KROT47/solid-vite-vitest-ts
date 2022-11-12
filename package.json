@@ -46,5 +46,9 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "//": "here we override csstype since vite issue https://github.com/frenic/csstype/issues/158",
+  "overrides": {
+    "csstype": "file:src/lib/csstype"
   }
 }
