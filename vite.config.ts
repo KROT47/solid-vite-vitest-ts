@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import solid from "solid-start/vite";
-import { defineConfig } from "vite";
+import solid from 'solid-start/vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   test: {
@@ -20,5 +20,8 @@ export default defineConfig({
   plugins: [solid()],
   resolve: {
     conditions: ['development', 'browser'],
+  },
+  ssr: {
+    noExternal: ['@hope-ui/core', '@hope-ui/styles'],
   },
 });
