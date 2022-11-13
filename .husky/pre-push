@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+BEFORE_STASH_COUNT=$(git stash list | wc -l)
+
+function cleanup {
+  echo "Cleanup..."
+
+  STASH_COUNT=$(git stash list | wc -l)
+
+  if [ "$STASH_COUNT" -gt "$BEFORE_STASH_COUNT" ]; then
+    git stash pop -q
+  fi
+}
+
+trap cleanup EXIT
+
+git stash -q &&
+  npm run check &&
+  npm run test:run &&
+  cleanup

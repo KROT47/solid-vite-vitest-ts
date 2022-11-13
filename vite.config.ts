@@ -3,6 +3,7 @@
 
 import solid from 'solid-start/vite';
 import { defineConfig } from 'vite';
+import vitePluginChecker from 'vite-plugin-checker';
 
 export default defineConfig({
   test: {
@@ -17,7 +18,10 @@ export default defineConfig({
     // threads: false,
     // isolate: false,
   },
-  plugins: [solid()],
+  plugins: [
+    solid(),
+    !process.env.VITEST ? vitePluginChecker({ typescript: true }) : undefined,
+  ],
   resolve: {
     conditions: ['development', 'browser'],
   },
