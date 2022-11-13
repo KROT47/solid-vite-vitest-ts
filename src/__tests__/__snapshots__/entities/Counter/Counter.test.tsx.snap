@@ -1,13 +1,13 @@
 // Vitest Snapshot v1
 
-exports[`<Counter /> > renders 1 1`] = `
+exports[`<Counter /> > renders 1`] = `
 <div>
   <button
     class="hope-c-PJLV hope-c-PJLV-ictfuVy-css hope-Button-root hope-c-gcZMyU hope-c-eVLFDE hope-c-hVhtWI"
     type="button"
   >
     Clicks: 
-    1
+    0
   </button>
 </div>
 `;
