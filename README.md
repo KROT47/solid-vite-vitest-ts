@@ -28,3 +28,16 @@ npm run dev -- --open
 Solid apps are built with _adapters_, which optimise your project for deployment to different environments.
 
 By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different adapter, add it to the `devDependencies` in `package.json` and specify in your `vite.config.js`.
+
+## Issues
+
+For issue with csstype move `modules_DEP` to `modules` and add to package.json:
+
+```
+{
+  "//": "here we override csstype since vite issue https://github.com/frenic/csstype/issues/158",
+  "overrides": {
+    "csstype": "file:modules/csstype"
+  }
+}
+```

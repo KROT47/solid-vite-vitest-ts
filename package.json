@@ -29,7 +29,6 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-solid": "^0.8.0",
     "prettier": "^2.7.1",
-    "sass": "^1.56.1",
     "solid-start-node": "^0.2.0",
     "typescript": "^4.8.4",
     "vite": "^3.1.8",
@@ -49,9 +48,5 @@
   },
   "engines": {
     "node": ">=16"
-  },
-  "//": "here we override csstype since vite issue https://github.com/frenic/csstype/issues/158",
-  "overrides": {
-    "csstype": "file:modules/csstype"
   }
 }

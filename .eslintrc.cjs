@@ -125,7 +125,8 @@ module.exports = {
             from: 'shared',
             allow: ['shared'],
             message:
-              'Do not import ${report.specifiers} from ${dependency.source} in helpers',
+              'Do not import ${report.specifiers} from ' +
+              '${dependency.source} in helpers',
           },
           {
             from: 'entities',
