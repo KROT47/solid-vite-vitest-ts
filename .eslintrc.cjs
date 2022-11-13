@@ -20,7 +20,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['solid', 'import', 'css-import-order', 'boundaries'],
+  plugins: [
+    '@typescript-eslint',
+    'solid',
+    'import',
+    'css-import-order',
+    'boundaries',
+  ],
   settings: {
     'import/resolver': {
       typescript: true,
