@@ -22,6 +22,7 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
+    'react',
     'solid',
     'import',
     'css-import-order',
@@ -64,6 +65,13 @@ module.exports = {
     ],
   },
   rules: {
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandLast: true,
+      },
+    ],
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/consistent-type-assertions': [
