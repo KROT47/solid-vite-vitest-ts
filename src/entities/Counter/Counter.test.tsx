@@ -11,12 +11,20 @@ describe('<Counter />', () => {
   });
 
   it('increments value', async ({ expect }) => {
-    const { queryByRole, unmount } = render(() => <Counter />);
-    const button = await queryByRole('button');
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveTextContent(/Clicks: 0/);
-    fireEvent.click(button);
-    expect(button).toHaveTextContent(/Clicks: 1/);
+    const { queryByText, queryByTestId, unmount } = render(() => <Counter />);
+    const incButton = queryByText('Increment');
+    const decButton = queryByText('Decrement');
+    const stateLabel = queryByTestId('counter-state');
+
+    expect(incButton).toBeInTheDocument();
+    expect(stateLabel).toHaveTextContent(/State: 0/);
+
+    fireEvent.click(incButton);
+    expect(stateLabel).toHaveTextContent(/State: 1/);
+
+    fireEvent.click(decButton);
+    expect(stateLabel).toHaveTextContent(/State: 0/);
+
     unmount();
   });
 });

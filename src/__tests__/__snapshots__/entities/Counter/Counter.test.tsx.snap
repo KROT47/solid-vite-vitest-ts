@@ -2,12 +2,32 @@
 
 exports[`<Counter /> > renders 1`] = `
 <div>
-  <button
-    class="hope-c-PJLV hope-c-PJLV-ictfuVy-css hope-Button-root hope-c-gcZMyU hope-c-eVLFDE hope-c-hVhtWI"
-    type="button"
+  <div
+    class="hope-c-PJLV hope-c-PJLV-ifHDmVQ-css hope-Stack-root"
   >
-    Clicks: 
-    0
-  </button>
+    <div
+      class="hope-c-PJLV hope-c-PJLV-iihTXvC-css hope-Stack-root"
+    >
+      <button
+        class="hope-c-PJLV hope-c-PJLV-ibMYTfq-css hope-Button-root hope-c-gcZMyU hope-c-eVLFDE hope-c-hVhtWI"
+        type="button"
+      >
+        Increment
+      </button>
+      <button
+        class="hope-Button-root hope-c-gcZMyU hope-c-fprZsY hope-c-eVLFDE"
+        type="button"
+      >
+        Decrement
+      </button>
+    </div>
+    <div
+      class="hope-c-PJLV hope-c-PJLV-igjdJOs-css"
+      data-testid="counter-state"
+    >
+      State: 
+      0
+    </div>
+  </div>
 </div>
 `;

@@ -1,20 +1,34 @@
-import { Button } from '@hope-ui/core';
-import { createSignal } from 'solid-js';
+import { Box, Button, HStack, VStack } from '@hope-ui/core';
+import { useUnit } from 'effector-solid';
 
-const [count, setCount] = createSignal(0);
+import { $counterState, counterApi } from './Counter.model';
 
 export function Counter(): JSXElement {
+  const state = useUnit($counterState);
+
   return (
-    <Button
-      variant="solid"
-      size="lg"
-      color="red"
-      _dark={{ color: 'red' }}
-      onClick={(): void => {
-        setCount(count() + 1);
-      }}
-    >
-      Clicks: {count()}
-    </Button>
+    <>
+      <VStack spacing={4}>
+        <HStack justify="center" spacing={4}>
+          <Button
+            _dark={{ color: 'red' }}
+            color="red"
+            size="lg"
+            variant="solid"
+            onClick={(): void => counterApi.inc()}
+          >
+            Increment
+          </Button>
+
+          <Button size="lg" onClick={(): void => counterApi.dec()}>
+            Decrement
+          </Button>
+        </HStack>
+
+        <Box data-testId="counter-state" textAlign="center">
+          State: {state}
+        </Box>
+      </VStack>
+    </>
   );
 }
