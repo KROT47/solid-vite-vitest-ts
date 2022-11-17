@@ -1,7 +1,7 @@
 import { fireEvent, render } from 'solid-testing-library';
 import { describe, it } from 'vitest';
 
-import { Counter } from '~/entities/Counter';
+import { Counter } from './';
 
 describe('<Counter />', () => {
   it('renders', ({ expect }) => {

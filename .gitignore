@@ -1,6 +1,7 @@
 
 dist
 coverage
+.env
 .solid
 .output
 .vercel

@@ -152,7 +152,7 @@ module.exports = {
           },
           {
             from: 'widgets',
-            allow: ['shared', 'entities'],
+            allow: ['shared', 'entities', 'features'],
           },
           {
             from: 'pages',

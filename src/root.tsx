@@ -6,7 +6,6 @@ import {
 } from '@hope-ui/core';
 import { Suspense } from 'solid-js';
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
@@ -18,6 +17,8 @@ import {
   Title,
 } from 'solid-start';
 
+import { MainHeader } from '~/widgets';
+
 import './root.css';
 
 export default function Root(): JSXElement {
@@ -28,15 +29,15 @@ export default function Root(): JSXElement {
       <Head>
         <Title>SolidStart - Bare</Title>
         <Meta charset="utf-8" />
-        <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <Body>
         <ColorModeScript />
         <HopeProvider>
           <Suspense>
             <ErrorBoundary>
-              <A href="/">Index</A>
-              <A href="/about">About</A>
+              <MainHeader />
+
               <Routes>
                 <FileRoutes />
               </Routes>

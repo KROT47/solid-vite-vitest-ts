@@ -1,6 +1,6 @@
 import { Title } from 'solid-start';
 
-import { Counter } from '~/entities/Counter';
+import { Counter } from '~/entities/counter';
 
 export function HomePage(): JSXElement {
   return (
