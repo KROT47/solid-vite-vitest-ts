@@ -6,6 +6,7 @@ import Path from 'path';
 import solid from 'solid-start/vite';
 import { defineConfig } from 'vite';
 import vitePluginChecker from 'vite-plugin-checker';
+import devtools from 'solid-devtools/vite';
 
 const srcAbsPath = `${process.cwd()}/src`;
 const snapshotsAbsPath = `${srcAbsPath}/__tests__/__snapshots__`;
@@ -28,6 +29,10 @@ export default defineConfig({
     // isolate: false,
   },
   plugins: [
+    devtools({
+      name: true,
+      componentLocation: true,
+    }),
     solid(),
     !process.env.VITEST ? vitePluginChecker({ typescript: true }) : undefined,
   ],
