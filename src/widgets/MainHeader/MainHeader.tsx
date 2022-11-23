@@ -1,5 +1,4 @@
-import { Box, Divider, HStack } from '@hope-ui/core';
-
+import { Box, Divider, HStack } from '~/shared/ui';
 import { AuthModalButton } from '~/features/auth';
 
 export function MainHeader(): JSXElement {

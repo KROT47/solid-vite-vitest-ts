@@ -1,9 +1,4 @@
 // @refresh reload
-import {
-  ColorModeScript,
-  HopeProvider,
-  injectCriticalStyle,
-} from '@hope-ui/core';
 import { Suspense } from 'solid-js';
 import {
   Body,
@@ -17,6 +12,11 @@ import {
   Title,
 } from 'solid-start';
 
+import {
+  ColorModeScript,
+  HopeProvider,
+  injectCriticalStyle,
+} from '~/shared/ui';
 import { MainHeader } from '~/widgets';
 
 import './root.css';

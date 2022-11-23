@@ -1,7 +1,7 @@
-import { Box, Button, HStack, VStack } from '@hope-ui/core';
 import { useUnit } from 'effector-solid';
 
-import { $counterState, counterApi } from './Counter.model';
+import { Box, Button, HStack, VStack } from '~/shared/ui';
+import { $counterState, counterApi } from './counter.model';
 
 export function Counter(): JSXElement {
   const state = useUnit($counterState);

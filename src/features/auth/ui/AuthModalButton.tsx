@@ -1,7 +1,7 @@
-import { IconButton } from '@hope-ui/core';
 import { createSignal } from 'solid-js';
 import { FaSolidUser } from 'solid-icons/fa';
 
+import { IconButton } from '~/shared/ui';
 import { AuthModal } from '~/entities/auth/ui/AuthModal';
 
 export function AuthModalButton(): JSXElement {

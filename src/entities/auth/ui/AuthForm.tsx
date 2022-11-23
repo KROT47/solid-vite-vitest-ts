@@ -1,12 +1,6 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  FormControlLabel,
-  Input,
-} from '@hope-ui/core';
 import { createSignal } from 'solid-js';
 
+import { Box, Button, FormControl, FormControlLabel, Input } from '~/shared/ui';
 import { supabase } from '~/shared/supabase';
 
 export function AuthForm(): JSXElement {

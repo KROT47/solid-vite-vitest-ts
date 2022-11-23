@@ -1,5 +1,4 @@
-import { HStack, Modal } from '@hope-ui/core';
-
+import { HStack, Modal } from '~/shared/ui';
 import { AuthForm } from './AuthForm';
 
 export function AuthModal(props: {
