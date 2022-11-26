@@ -1,0 +1,8 @@
+{
+  "email_required": "Пожалуйста введите свой email",
+  "invalid_email": "Пожалуйста введите корректный email",
+  "submit": "Отправить",
+  "email": "Email",
+  "log_in_title": "Вход",
+  "log_in": "Войти"
+}

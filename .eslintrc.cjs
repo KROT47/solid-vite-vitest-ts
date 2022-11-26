@@ -121,6 +121,10 @@ module.exports = {
         ignorePropertyModificationsFor: ['state'],
       },
     ],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
+    ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],

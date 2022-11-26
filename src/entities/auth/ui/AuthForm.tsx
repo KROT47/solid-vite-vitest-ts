@@ -3,12 +3,14 @@ import { createSignal } from 'solid-js';
 import { Box, Button, FormControl, FormControlLabel, Input } from '~/shared/ui';
 import MF, { Field, Form } from '~/shared/modular-forms';
 import { supabase } from '~/shared/supabase';
+import { useI18n } from '~/globals/i18n';
 
 type AuthForm = {
   email: string;
 };
 
 export function AuthForm(): JSXElement {
+  const { t } = useI18n();
   const authForm = MF.createForm<AuthForm>();
 
   const [isLoading, setIsLoading] = createSignal(false);
@@ -35,20 +37,20 @@ export function AuthForm(): JSXElement {
           name="email"
           of={authForm}
           validate={[
-            MF.required('Please enter your email.'),
-            MF.email('The email address is badly formatted.'),
+            MF.required(t('email_required')),
+            MF.email(t('invalid_email')),
           ]}
         >
           {(field): JSXElement => (
             <FormControl>
-              <FormControlLabel for="email">Email address</FormControlLabel>
+              <FormControlLabel for="email">{t('email')}</FormControlLabel>
               <Input id="email" type="email" {...field.props} />
               {field.error && <div>{field.error}</div>}
             </FormControl>
           )}
         </Field>
         <Button isLoading={isLoading()} type="submit" variant="solid">
-          Submit
+          {t('submit')}
         </Button>
       </Form>
     </Box>

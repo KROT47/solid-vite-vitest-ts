@@ -12,6 +12,7 @@ import {
   Title,
 } from 'solid-start';
 import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
+import { I18nContext } from '@solid-primitives/i18n';
 
 import {
   ColorModeScript,
@@ -20,6 +21,7 @@ import {
 } from '~/shared/ui';
 import { MainHeader } from '~/widgets';
 import { Modals, ModalsProvider } from '~/globals/modals';
+import { i18nContext } from '~/globals/i18n';
 
 import './root.css';
 
@@ -38,21 +40,23 @@ export default function Root(): JSXElement {
       <Body>
         <ColorModeScript />
         <HopeProvider>
-          <ModalsProvider>
-            <QueryClientProvider client={queryClient}>
-              <Suspense>
-                <ErrorBoundary>
-                  <MainHeader />
+          <I18nContext.Provider value={i18nContext}>
+            <ModalsProvider>
+              <QueryClientProvider client={queryClient}>
+                <Suspense>
+                  <ErrorBoundary>
+                    <MainHeader />
 
-                  <Routes>
-                    <FileRoutes />
-                  </Routes>
+                    <Routes>
+                      <FileRoutes />
+                    </Routes>
 
-                  <Modals />
-                </ErrorBoundary>
-              </Suspense>
-            </QueryClientProvider>
-          </ModalsProvider>
+                    <Modals />
+                  </ErrorBoundary>
+                </Suspense>
+              </QueryClientProvider>
+            </ModalsProvider>
+          </I18nContext.Provider>
         </HopeProvider>
         <Scripts />
       </Body>

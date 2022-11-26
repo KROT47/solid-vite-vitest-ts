@@ -6,8 +6,11 @@ import { AuthSession } from '@supabase/supabase-js';
 import { Box, Button, Divider, HStack, IconButton, Popover } from '~/shared/ui';
 import { supabase } from '~/shared/supabase';
 import { ModalTypes, useModals } from '~/globals/modals';
+import { useI18n } from '~/globals/i18n';
 
 export function MainHeader(): JSXElement {
+  const { t } = useI18n();
+
   const [session, setSession] = createSignal<AuthSession | null>(null);
 
   const { openModal } = useModals();
@@ -58,7 +61,7 @@ export function MainHeader(): JSXElement {
             <Show
               fallback={
                 <Button onClick={(): void => openModal(ModalTypes.LOGIN_MODAL)}>
-                  Log In
+                  {t('log_in')}
                 </Button>
               }
               when={profile()}
