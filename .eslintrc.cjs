@@ -35,6 +35,10 @@ module.exports = {
     },
     'boundaries/elements': [
       {
+        type: 'globals',
+        pattern: 'globals/*',
+      },
+      {
         type: 'shared',
         pattern: 'shared/*',
       },
@@ -136,6 +140,10 @@ module.exports = {
         message: '${file.type} is not allowed to import ${dependency.type}',
         rules: [
           {
+            from: 'globals',
+            allow: ['globals', 'shared', 'entities', 'features', 'widgets'],
+          },
+          {
             from: 'shared',
             allow: ['shared'],
             message:
@@ -144,23 +152,30 @@ module.exports = {
           },
           {
             from: 'entities',
-            allow: ['shared'],
+            allow: ['globals', 'shared'],
           },
           {
             from: 'features',
-            allow: ['shared', 'entities'],
+            allow: ['globals', 'shared', 'entities'],
           },
           {
             from: 'widgets',
-            allow: ['shared', 'entities', 'features'],
+            allow: ['globals', 'shared', 'entities', 'features'],
           },
           {
             from: 'pages',
-            allow: ['shared', 'entities', 'features', 'widgets'],
+            allow: ['globals', 'shared', 'entities', 'features', 'widgets'],
           },
           {
             from: 'processes',
-            allow: ['shared', 'entities', 'features', 'widgets', 'pages'],
+            allow: [
+              'globals',
+              'shared',
+              'entities',
+              'features',
+              'widgets',
+              'pages',
+            ],
           },
           {
             from: 'app',
