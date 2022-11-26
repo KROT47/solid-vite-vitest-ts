@@ -18,6 +18,7 @@ import {
   injectCriticalStyle,
 } from '~/shared/ui';
 import { MainHeader } from '~/widgets';
+import { Modals, ModalsProvider } from '~/globals/modals';
 
 import './root.css';
 
@@ -34,15 +35,19 @@ export default function Root(): JSXElement {
       <Body>
         <ColorModeScript />
         <HopeProvider>
-          <Suspense>
-            <ErrorBoundary>
-              <MainHeader />
+          <ModalsProvider>
+            <Suspense>
+              <ErrorBoundary>
+                <MainHeader />
 
-              <Routes>
-                <FileRoutes />
-              </Routes>
-            </ErrorBoundary>
-          </Suspense>
+                <Routes>
+                  <FileRoutes />
+                </Routes>
+
+                <Modals />
+              </ErrorBoundary>
+            </Suspense>
+          </ModalsProvider>
         </HopeProvider>
         <Scripts />
       </Body>
