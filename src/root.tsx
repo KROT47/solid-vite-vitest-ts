@@ -11,6 +11,7 @@ import {
   Scripts,
   Title,
 } from 'solid-start';
+import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
 
 import {
   ColorModeScript,
@@ -21,6 +22,8 @@ import { MainHeader } from '~/widgets';
 import { Modals, ModalsProvider } from '~/globals/modals';
 
 import './root.css';
+
+const queryClient = new QueryClient();
 
 export default function Root(): JSXElement {
   injectCriticalStyle();
@@ -36,17 +39,19 @@ export default function Root(): JSXElement {
         <ColorModeScript />
         <HopeProvider>
           <ModalsProvider>
-            <Suspense>
-              <ErrorBoundary>
-                <MainHeader />
+            <QueryClientProvider client={queryClient}>
+              <Suspense>
+                <ErrorBoundary>
+                  <MainHeader />
 
-                <Routes>
-                  <FileRoutes />
-                </Routes>
+                  <Routes>
+                    <FileRoutes />
+                  </Routes>
 
-                <Modals />
-              </ErrorBoundary>
-            </Suspense>
+                  <Modals />
+                </ErrorBoundary>
+              </Suspense>
+            </QueryClientProvider>
           </ModalsProvider>
         </HopeProvider>
         <Scripts />
