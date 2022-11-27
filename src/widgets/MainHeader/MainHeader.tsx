@@ -1,61 +1,16 @@
 import { FaSolidBars, FaSolidUser } from 'solid-icons/fa';
-import { createQuery } from '@tanstack/solid-query';
-import { Accessor, createMemo, createSignal, onMount, Show } from 'solid-js';
-import { AuthSession } from '@supabase/supabase-js';
+import { Show } from 'solid-js';
 
 import { Box, Button, Divider, HStack, IconButton, Popover } from '~/shared/ui';
 import { supabase } from '~/shared/supabase';
 import { ModalTypes, useModals } from '~/globals/modals';
 import { useI18n } from '~/globals/i18n';
-
-function useSession(): {
-  session: Accessor<AuthSession | null>;
-  sessionIsLoading: Accessor<boolean>;
-} {
-  const [session, setSession] = createSignal<AuthSession | null>(null);
-
-  onMount(() => {
-    supabase.auth.getSession().then(({ data: { session: newSession } }) => {
-      setSession(newSession);
-    });
-
-    supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
-    });
-  });
-
-  const sessionIsLoading = createMemo(() => session() === null);
-
-  return { session, sessionIsLoading };
-}
+import { useUserProfile } from '~/shared/hooks';
 
 export function MainHeader(): JSXElement {
   const { t } = useI18n();
-  const { session, sessionIsLoading } = useSession();
-
+  const userProfile = useUserProfile();
   const { openModal } = useModals();
-
-  const profile = createMemo(() => {
-    const $session = session();
-    if (!$session) return;
-
-    const { user } = $session;
-
-    return createQuery(
-      () => ['profile', user.id],
-      async () => {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select(`username, website, avatar_url`)
-          .eq('id', user.id)
-          .single();
-
-        if (error) throw error;
-
-        return data;
-      },
-    );
-  });
 
   return (
     <Box>
@@ -64,9 +19,9 @@ export function MainHeader(): JSXElement {
           <Popover.Trigger
             aria-label=""
             as={IconButton}
-            isLoading={sessionIsLoading()}
+            isLoading={userProfile() === undefined}
           >
-            <Show fallback={<FaSolidBars />} when={profile()}>
+            <Show fallback={<FaSolidBars />} when={userProfile()}>
               <FaSolidUser />
             </Show>
           </Popover.Trigger>
@@ -78,7 +33,7 @@ export function MainHeader(): JSXElement {
                   {t('Log In!')}
                 </Button>
               }
-              when={profile()}
+              when={userProfile()}
             >
               <Button
                 onClick={(): void => {
