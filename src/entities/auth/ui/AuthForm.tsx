@@ -37,20 +37,20 @@ export function AuthForm(): JSXElement {
           name="email"
           of={authForm}
           validate={[
-            MF.required(t('email_required')),
-            MF.email(t('invalid_email')),
+            MF.required(t('Please enter your email')),
+            MF.email(t('Please provide valid email')),
           ]}
         >
           {(field): JSXElement => (
             <FormControl>
-              <FormControlLabel for="email">{t('email')}</FormControlLabel>
+              <FormControlLabel for="email">{t('Email')}</FormControlLabel>
               <Input id="email" type="email" {...field.props} />
               {field.error && <div>{field.error}</div>}
             </FormControl>
           )}
         </Field>
         <Button isLoading={isLoading()} type="submit" variant="solid">
-          {t('submit')}
+          {t('Submit')}
         </Button>
       </Form>
     </Box>

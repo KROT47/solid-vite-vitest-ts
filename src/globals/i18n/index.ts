@@ -6,6 +6,9 @@ import {
 import en from './en.json';
 import ru from './ru.json';
 
+// keys array for values which can be written in english in any lang
+const badValuesExceptions = ['Email'];
+
 const dict = {
   en,
   ru,
@@ -22,7 +25,7 @@ export function useI18n(): {
   const [t, { locale }] = useI18nBase();
 
   return {
-    t,
+    t: (key, params, defaultValue) => t(key, params, defaultValue ?? en[key]),
     setLocale: locale,
   };
 }
@@ -56,7 +59,10 @@ if (process.env.NODE_ENV === 'development') {
     }
 
     const badValues = langArr.filter(
-      (key) => lang !== 'en' && dict[lang][key] === en[key],
+      (key) =>
+        lang !== 'en' &&
+        !badValuesExceptions.includes(key) &&
+        dict[lang][key] === en[key],
     );
     if (badValues.length) {
       console.error(

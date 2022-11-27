@@ -61,7 +61,7 @@ export function MainHeader(): JSXElement {
             <Show
               fallback={
                 <Button onClick={(): void => openModal(ModalTypes.LOGIN_MODAL)}>
-                  {t('log_in')}
+                  {t('Log In!')}
                 </Button>
               }
               when={profile()}

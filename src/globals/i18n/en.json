@@ -1,8 +1,8 @@
 {
-  "email_required": "Please enter your email",
-  "invalid_email": "Please provide valid email",
-  "submit": "Submit",
-  "email": "Email",
-  "log_in_title": "Log In",
-  "log_in": "Log In"
+  "Please enter your email": "Please enter your email",
+  "Please provide valid email": "Please provide valid email",
+  "Submit": "Submit",
+  "Email": "Email",
+  "Log In!": "Log In",
+  "Log In": "Log In"
 }
