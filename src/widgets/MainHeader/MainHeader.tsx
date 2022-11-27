@@ -1,6 +1,6 @@
 import { FaSolidBars, FaSolidUser } from 'solid-icons/fa';
 import { createQuery } from '@tanstack/solid-query';
-import { createMemo, createSignal, onMount, Show } from 'solid-js';
+import { Accessor, createMemo, createSignal, onMount, Show } from 'solid-js';
 import { AuthSession } from '@supabase/supabase-js';
 
 import { Box, Button, Divider, HStack, IconButton, Popover } from '~/shared/ui';
@@ -8,12 +8,11 @@ import { supabase } from '~/shared/supabase';
 import { ModalTypes, useModals } from '~/globals/modals';
 import { useI18n } from '~/globals/i18n';
 
-export function MainHeader(): JSXElement {
-  const { t } = useI18n();
-
+function useSession(): {
+  session: Accessor<AuthSession | null>;
+  sessionIsLoading: Accessor<boolean>;
+} {
   const [session, setSession] = createSignal<AuthSession | null>(null);
-
-  const { openModal } = useModals();
 
   onMount(() => {
     supabase.auth.getSession().then(({ data: { session: newSession } }) => {
@@ -24,6 +23,17 @@ export function MainHeader(): JSXElement {
       setSession(newSession);
     });
   });
+
+  const sessionIsLoading = createMemo(() => session() === null);
+
+  return { session, sessionIsLoading };
+}
+
+export function MainHeader(): JSXElement {
+  const { t } = useI18n();
+  const { session, sessionIsLoading } = useSession();
+
+  const { openModal } = useModals();
 
   const profile = createMemo(() => {
     const $session = session();
@@ -51,7 +61,11 @@ export function MainHeader(): JSXElement {
     <Box>
       <HStack justifyContent="end" padding={2}>
         <Popover offset={8} placement="bottom-end" withArrow={false}>
-          <Popover.Trigger aria-label="" as={IconButton}>
+          <Popover.Trigger
+            aria-label=""
+            as={IconButton}
+            isLoading={sessionIsLoading()}
+          >
             <Show fallback={<FaSolidBars />} when={profile()}>
               <FaSolidUser />
             </Show>
