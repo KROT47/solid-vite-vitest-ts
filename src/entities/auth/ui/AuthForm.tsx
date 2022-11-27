@@ -1,6 +1,13 @@
 import { createSignal } from 'solid-js';
 
-import { Box, Button, FormControl, FormControlLabel, Input } from '~/shared/ui';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormControlLabel,
+  getUiColor,
+  Input,
+} from '~/shared/ui';
 import MF, { Field, Form } from '~/shared/modular-forms';
 import { supabase } from '~/shared/supabase';
 import { useI18n } from '~/globals/i18n';
@@ -44,8 +51,15 @@ export function AuthForm(): JSXElement {
           {(field): JSXElement => (
             <FormControl>
               <FormControlLabel for="email">{t('Email')}</FormControlLabel>
-              <Input id="email" type="email" {...field.props} />
-              {field.error && <div>{field.error}</div>}
+              <Input
+                id="email"
+                type="email"
+                {...field.props}
+                isInvalid={Boolean(field.error)}
+              />
+              {field.error && (
+                <Box color={getUiColor('danger')}>{field.error}</Box>
+              )}
             </FormControl>
           )}
         </Field>
