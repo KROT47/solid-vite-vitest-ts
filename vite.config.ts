@@ -29,12 +29,10 @@ export default defineConfig({
     // isolate: false,
   },
   plugins: [
-    !process.env.VITEST
-      ? devtools({
-          name: true,
-          componentLocation: true,
-        })
-      : undefined,
+    devtools({
+      name: true,
+      componentLocation: true,
+    }),
     solid(),
     !process.env.VITEST ? vitePluginChecker({ typescript: true }) : undefined,
   ],
