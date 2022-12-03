@@ -16,6 +16,8 @@ import { I18nContext } from '@solid-primitives/i18n';
 
 import {
   ColorModeScript,
+  extendTheme,
+  HeadingTheme,
   HopeProvider,
   injectCriticalStyle,
 } from '~/shared/ui';
@@ -26,6 +28,25 @@ import { i18nContext } from '~/globals/i18n';
 import './root.css';
 
 const queryClient = new QueryClient();
+
+const theme = extendTheme({
+  components: {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    Heading: {
+      defaultProps: {
+        level: 2,
+        size: '5xl',
+      },
+      styleConfigOverride: {
+        root: {
+          baseStyle: {
+            color: 'white',
+          },
+        },
+      },
+    } as HeadingTheme,
+  },
+});
 
 export default function Root(): JSXElement {
   injectCriticalStyle();
@@ -39,7 +60,7 @@ export default function Root(): JSXElement {
       </Head>
       <Body>
         <ColorModeScript />
-        <HopeProvider>
+        <HopeProvider theme={theme}>
           <I18nContext.Provider value={i18nContext}>
             <ModalsProvider>
               <QueryClientProvider client={queryClient}>
