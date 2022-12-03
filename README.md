@@ -10,3 +10,20 @@ Everything you need to build a Solid project, powered by [`solid-start`](https:/
 - [Supabase](https://supabase.com/)
 - [Vitest](https://vitest.dev/)
 - Typescript
+
+# Add svg icon
+
+1. Add icon to `src/assets/svg-icons`
+2. Run `npm run build:icons`
+3. Use for `icon-name.svg`:
+
+```jsx
+import { IconName } from '~/assets/icons';
+import { Icon } from '~/shared/ui';
+
+<Icon as={Llama} />;
+
+/* or */
+
+<Llama />;
+```

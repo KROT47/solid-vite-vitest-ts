@@ -20,6 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  ignorePatterns: ['src/assets/icons/*', 'src/shared/modules/*'],
   plugins: [
     '@typescript-eslint',
     'react',
