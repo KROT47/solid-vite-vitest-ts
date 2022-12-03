@@ -1,7 +1,7 @@
 import { useUnit } from 'effector-solid';
 
 import { Box, Button, HStack, VStack } from '~/shared/ui';
-import { $counterState, counterApi } from './counter.model';
+import { $counterState, counterApi } from './Counter.model';
 
 export function Counter(): JSXElement {
   const state = useUnit($counterState);
