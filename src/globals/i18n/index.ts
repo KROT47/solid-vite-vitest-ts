@@ -7,7 +7,7 @@ import en from './en.json';
 import ru from './ru.json';
 
 // keys array for values which can be written in english in any lang
-const badValuesExceptions = ['Email'];
+const badValuesExceptions = ['email'];
 
 const dict = {
   en,
@@ -25,7 +25,8 @@ export function useI18n(): {
   const [t, { locale }] = useI18nBase();
 
   return {
-    t: (key, params, defaultValue) => t(key, params, defaultValue ?? en[key]),
+    t: (key, params, defaultValue) =>
+      t(key, params, defaultValue ?? en[key] ?? key),
     setLocale: locale,
   };
 }

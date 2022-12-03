@@ -1,8 +1,11 @@
 {
-  "Please enter your email": "Пожалуйста введите свой email",
-  "Please provide valid email": "Пожалуйста введите корректный email",
-  "Submit": "Отправить",
-  "Email": "Email",
-  "Log In!": "Войти",
-  "Log In": "Вход"
+  "email_required": "Пожалуйста введите свой email",
+  "email_invalid": "Пожалуйста введите корректный email",
+  "submit": "Отправить",
+  "email": "Email",
+  "log_in_noun": "Вход",
+  "log_in": "Войти",
+  "not_found": "Не найдено",
+  "page_not_found": "Страница не найдена",
+  "go_main_page": "Перейти на главную"
 }

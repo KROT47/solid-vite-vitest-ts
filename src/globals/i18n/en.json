@@ -1,8 +1,11 @@
 {
-  "Please enter your email": "Please enter your email",
-  "Please provide valid email": "Please provide valid email",
-  "Submit": "Submit",
-  "Email": "Email",
-  "Log In!": "Log In",
-  "Log In": "Log In"
+  "email_required": "Please enter your email",
+  "email_invalid": "Please provide valid email",
+  "submit": "Submit",
+  "email": "Email",
+  "log_in_noun": "Log In",
+  "log_in": "Log In",
+  "not_found": "Not Found",
+  "page_not_found": "Page Not Found",
+  "go_main_page": "Go to main page"
 }

@@ -30,7 +30,7 @@ export function MainHeader(): JSXElement {
             <Show
               fallback={
                 <Button onClick={(): void => openModal(ModalTypes.LOGIN_MODAL)}>
-                  {t('Log In!')}
+                  {t('log_in')}
                 </Button>
               }
               when={userProfile()}

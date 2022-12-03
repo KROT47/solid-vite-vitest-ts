@@ -14,7 +14,9 @@ export function AuthModal(props: {
       <Modal.Overlay />
       <Modal.Content p={4}>
         <HStack alignItems="flex-start" justifyContent="space-between" mb={4}>
-          <Modal.Heading fontWeight="semibold">{t('Log In')}</Modal.Heading>
+          <Modal.Heading fontWeight="semibold">
+            {t('log_in_noun')}
+          </Modal.Heading>
 
           <Modal.CloseButton />
         </HStack>
