@@ -24,6 +24,7 @@ import {
 import { MainHeader } from '~/widgets';
 import { Modals, ModalsProvider } from '~/globals/modals';
 import { i18nContext } from '~/globals/i18n';
+import { ErrorPage } from '~/pages';
 
 import './root.css';
 
@@ -65,7 +66,13 @@ export default function Root(): JSXElement {
             <ModalsProvider>
               <QueryClientProvider client={queryClient}>
                 <Suspense>
-                  <ErrorBoundary>
+                  <ErrorBoundary
+                    fallback={
+                      process.env.NODE_ENV === 'production'
+                        ? (e): JSXElement => <ErrorPage error={e} />
+                        : undefined
+                    }
+                  >
                     <MainHeader />
 
                     <Routes>
