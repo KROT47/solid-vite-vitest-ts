@@ -12,8 +12,8 @@ import {
   Title,
 } from 'solid-start';
 import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
-import { I18nContext } from '@solid-primitives/i18n';
 
+import { I18nContext } from '~/shared/modules/i18n';
 import {
   ColorModeScript,
   extendTheme,

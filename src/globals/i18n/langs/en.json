@@ -1,4 +1,5 @@
 {
+  "!_example": "They are {{count}} {{count|plural:year,years}}",
   "email_required": "Please enter your email",
   "email_invalid": "Please provide valid email",
   "submit": "Submit",

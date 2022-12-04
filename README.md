@@ -11,6 +11,14 @@ Everything you need to build a Solid project, powered by [`solid-start`](https:/
 - [Vitest](https://vitest.dev/)
 - Typescript
 
+
+# Add new lang
+
+1. Add lang json file to `~/globals/i18n/langs`
+2. Configure `~/globals/i18n/config.ts` using [this guide](http://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html)
+
+<br />
+
 # Add svg icon
 
 1. Add icon to `src/assets/svg-icons`

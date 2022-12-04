@@ -86,7 +86,7 @@ module.exports = {
       },
     ],
     'import/order': [
-      'error',
+      'warn',
       {
         groups: [
           'builtin',
@@ -114,7 +114,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'max-len': [1, 80, 2],
+    'max-len': [1, { code: 80, tabWidth: 2, ignoreComments: true }],
     'no-param-reassign': [
       'error',
       {

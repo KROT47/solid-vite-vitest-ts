@@ -1,4 +1,5 @@
 {
+  "!_example": "Им {{count}} {{count|plural:год,года,лет}}",
   "email_required": "Пожалуйста введите свой email",
   "email_invalid": "Пожалуйста введите корректный email",
   "submit": "Отправить",
