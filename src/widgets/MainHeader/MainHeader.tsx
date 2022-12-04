@@ -1,7 +1,20 @@
-import { FaSolidBars, FaSolidUser } from 'solid-icons/fa';
+import {
+  FaSolidBars,
+  FaSolidMoon,
+  FaSolidSun,
+  FaSolidUser,
+} from 'solid-icons/fa';
 import { Show } from 'solid-js';
 
-import { Box, Button, Divider, HStack, IconButton, Popover } from '~/shared/ui';
+import {
+  Box,
+  Button,
+  Divider,
+  HStack,
+  IconButton,
+  Popover,
+  useColorMode,
+} from '~/shared/ui';
 import { supabase } from '~/shared/supabase';
 import { ModalTypes, useModals } from '~/globals/modals';
 import { useI18n } from '~/globals/i18n';
@@ -10,6 +23,7 @@ import { useUserProfile } from '~/shared/hooks';
 export function MainHeader(): JSXElement {
   const { t } = useI18n();
   const userProfile = useUserProfile();
+  const { colorMode, toggleColorMode } = useColorMode();
   const { openModal } = useModals();
 
   return (
@@ -43,6 +57,10 @@ export function MainHeader(): JSXElement {
                 Log Out
               </Button>
             </Show>
+
+            <Button onClick={toggleColorMode}>
+              {colorMode() === 'light' ? <FaSolidMoon /> : <FaSolidSun />}
+            </Button>
           </Popover.Content>
         </Popover>
       </HStack>
