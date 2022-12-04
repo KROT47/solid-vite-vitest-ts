@@ -6,11 +6,26 @@ Everything you need to build a Solid project, powered by [`solid-start`](https:/
 - [Solid-Start](https://start.solidjs.com/)
 - [HopeUI@next](https://next--hope-ui.netlify.app/)
 - [Effector](https://effector.dev/)
-- [Feature Sliced Design](https://feature-sliced.design/)
+- [Feature Sliced Design](https://feature-sliced.design/) - kind'a
 - [Supabase](https://supabase.com/)
 - [Vitest](https://vitest.dev/)
+- Internationalization (i18n)
 - Typescript
 
+# Add modal
+
+1. Add modal type and component to `~/globals/modals`
+2. Use:
+
+```jsx
+import { ModalTypes, useModals } from '~/globals/modals';
+
+const { openModal } = useModals();
+
+openModal(ModalTypes.LOGIN_MODAL);
+```
+
+<br />
 
 # Add new lang
 
