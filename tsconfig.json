@@ -15,5 +15,6 @@
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "skipLibCheck": true,
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["scripts/"]
 }
